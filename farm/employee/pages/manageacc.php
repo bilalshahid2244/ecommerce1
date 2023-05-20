@@ -93,7 +93,7 @@ if(isset($_POST["edtemp"])){
         `emp_add`=' $em_address',
         `emp_num`=' $em_ph',
         `emp_img`='$_loc_img'
-        WHERE `emp_name` ='".$_SESSION["ename"]."' and `emp_email` = '".$_SESSION["eemail"]."'";
+        WHERE emp_id =". $_SESSION["empid"]."";
     
          $run_upd = mysqli_query($conn,$update_empimg);
          if($run_upd==true){
@@ -135,7 +135,7 @@ if(isset($_POST["edtemp"])){
     `emp_add`=' $em_address',
     `emp_num`=' $em_ph',
     `emp_img`=' $prev_image'
-    WHERE `emp_name` ='".$_SESSION["ename"]."' and `emp_email` = '".$_SESSION["eemail"]."'";
+    WHERE emp_id =". $_SESSION["empid"]."";
 
      $run_upd = mysqli_query($conn,$update_emp);
      if($run_upd==true){

@@ -15,7 +15,7 @@
 
  <?php 
  
-     $insert_query = "SELECT * FROM `tbl_employee` WHERE `emp_name` ='".$_SESSION["ename"]."' AND `emp_email` = '". $_SESSION["eemail"]."'";
+     $insert_query = "SELECT * FROM `tbl_employee` WHERE emp_id =". $_SESSION["empid"]."";
      $execute = mysqli_query($conn,$insert_query);
      $kitni_rows = mysqli_num_rows($execute);
 

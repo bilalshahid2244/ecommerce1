@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2023 at 09:16 PM
+-- Generation Time: May 20, 2023 at 01:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -40,8 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `isactive`) VALUES
-(1, 'demo', 'demo67@gmail.com', '123', 1),
-(2, 'bilal', 'bilal323@gmail.com', '11', 0);
+(1, 'demo', 'demo67@gmail.com', '123', 1);
 
 -- --------------------------------------------------------
 
@@ -83,13 +82,13 @@ CREATE TABLE `table_products` (
 --
 
 INSERT INTO `table_products` (`product_id`, `product_name`, `product_price`, `product_quantity`, `product_catogary`, `product_image`) VALUES
-(14, 'honda', 2000000, 1, 14, '../../productimages/download (1).jfif'),
-(16, 'twin laser', 720001400, 1, 16, '../../productimages/download (3).jfif'),
+(14, 'honda 125 2017', 2000000, 4, 14, '../../productimages/125.jpg'),
+(16, 'twin laser', 720001400, 1, 10, '../../productimages/download (3).jfif'),
 (17, 'clutch plate', 650, 1, 16, '../../productimages/clutch.jpg'),
-(18, 'racing shoes', 340, 1, 15, '../../productimages/racing.jpg'),
+(18, 'racing shoes', 340, 1, 15, '../../productimages/shoes-img1.png'),
 (19, 'chain sprocket', 1200, 1, 16, '../../productimages/chain sprocket.jpg'),
 (20, 'watch', 1200, 1, 15, '../../productimages/th.jpg'),
-(21, 'air ground missiles', 11000, 1, 17, '../../productimages/download (2).jfif'),
+(21, 'air ground missiles', 11000, 3, 10, '../../productimages/Screenshot (5).png'),
 (22, 'mehran', 2100000, 1, 12, '../../productimages/th (1).jpg'),
 (23, 'cup set', 1200, 1, 11, '../../productimages/cupset.jpg'),
 (24, 'piston kit', 450, 1, 16, '../../productimages/piston.jpg'),
@@ -147,7 +146,8 @@ INSERT INTO `tbl_catogary` (`id`, `name`, `description`) VALUES
 (14, 'cg 125', 'honda'),
 (15, 'MENS COLLECTION', 'gh'),
 (16, 'sphere parts', ''),
-(17, 'weapons', 'zz');
+(17, 'weapons', 'zz'),
+(18, 'electronical', 'qw');
 
 -- --------------------------------------------------------
 
@@ -169,7 +169,8 @@ CREATE TABLE `tbl_commerce` (
 
 INSERT INTO `tbl_commerce` (`id`, `name`, `email`, `subject`, `mssg`) VALUES
 (5, ' ali ', ' ali321@gmail.com', '  sindhi', 'acaha nh hai'),
-(6, '  bilal', ' bilalrao321@gmail.com', '  maths', 'gg');
+(6, '  bilal', ' bilalrao321@gmail.com', '  maths', 'gg'),
+(7, 'bilal', 'bilalrao321@gmail.com', 'asd', 'e');
 
 -- --------------------------------------------------------
 
@@ -186,6 +187,8 @@ CREATE TABLE `tbl_employee` (
   `emp_gender` varchar(50) NOT NULL,
   `emp_salary` bigint(20) NOT NULL,
   `emp_dep` varchar(50) NOT NULL,
+  `emp_password` varchar(50) NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'unapprove',
   `emp_img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -193,34 +196,31 @@ CREATE TABLE `tbl_employee` (
 -- Dumping data for table `tbl_employee`
 --
 
-INSERT INTO `tbl_employee` (`emp_id`, `emp_name`, `emp_email`, `emp_add`, `emp_num`, `emp_gender`, `emp_salary`, `emp_dep`, `emp_img`) VALUES
-(4, 'waiz', 'waiz56@com', 'ghar', '02332214555', 'MALE', 45000, 'manufa', '../../employeeimages/th.jpg'),
-(5, ' mano', 'mano897@gmail.com', ' liyari80', ' 02332214554', ' OTHERS', 32000, 'offmanager', ' ../../employeeimages/Screenshot (75) (1).png'),
-(6, 'M.BILAL KHAN RAO', 'sbilal487@gmail.com', 'scheme33 gulzar- e- hijri', '03308610403', 'MALE', 35000, 'php developer', '../../employeeimages/322534097_743289806691167_7154236168317718145_n.jpg');
+INSERT INTO `tbl_employee` (`emp_id`, `emp_name`, `emp_email`, `emp_add`, `emp_num`, `emp_gender`, `emp_salary`, `emp_dep`, `emp_password`, `status`, `emp_img`) VALUES
+(9, '       ubaidkhan', 'ubaid455@gmail.com', '       scheme33 gulzar- e- hijri', '       03308610403', 'MALE', 450000, 'offmanager', '12', 'unapprove', '../../employeeimages/th.jpg'),
+(11, '      M.BILAL KHAN RAO', 'sbilal487@gmail.com', '  scheme33 gulzar- e- hijri', '  03308610401', 'MALE', 451000, 'offmanager', '12', 'unapprove', '../../employeeimages/');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_reg`
+-- Table structure for table `tbl_users`
 --
 
-CREATE TABLE `tbl_reg` (
+CREATE TABLE `tbl_users` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `phnum` varchar(50) NOT NULL,
+  `phnum` text NOT NULL,
   `addresss` varchar(50) NOT NULL,
   `pass` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_reg`
+-- Dumping data for table `tbl_users`
 --
 
-INSERT INTO `tbl_reg` (`id`, `name`, `email`, `phnum`, `addresss`, `pass`) VALUES
-(1, ' bilal', 'bilalrao321@gmail.com', '4186', ' ghar', '123'),
-(2, ' ', '', '', ' ', ' '),
-(3, ' axher', 'axher45@gnail.com', '4186', ' ghar', '11');
+INSERT INTO `tbl_users` (`id`, `name`, `email`, `phnum`, `addresss`, `pass`) VALUES
+(1, ' bilal', 'bilalrao321@gmail.com', '11222', ' ghar', '12');
 
 -- --------------------------------------------------------
 
@@ -289,13 +289,15 @@ ALTER TABLE `tbl_commerce`
 -- Indexes for table `tbl_employee`
 --
 ALTER TABLE `tbl_employee`
-  ADD PRIMARY KEY (`emp_id`);
+  ADD PRIMARY KEY (`emp_id`),
+  ADD UNIQUE KEY `emp_email` (`emp_email`);
 
 --
--- Indexes for table `tbl_reg`
+-- Indexes for table `tbl_users`
 --
-ALTER TABLE `tbl_reg`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tbl_users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `user detail`
@@ -311,7 +313,7 @@ ALTER TABLE `user detail`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `information`
@@ -335,25 +337,25 @@ ALTER TABLE `tbl_about`
 -- AUTO_INCREMENT for table `tbl_catogary`
 --
 ALTER TABLE `tbl_catogary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tbl_commerce`
 --
 ALTER TABLE `tbl_commerce`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_employee`
 --
 ALTER TABLE `tbl_employee`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `tbl_reg`
+-- AUTO_INCREMENT for table `tbl_users`
 --
-ALTER TABLE `tbl_reg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `tbl_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user detail`

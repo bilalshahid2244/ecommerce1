@@ -80,8 +80,8 @@ session_start();
                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
                         <?php
-                        if(isset( $_SESSION["username"])){?>
-                        <a href="#" class="btn btn-danger" ><?php echo $_SESSION["username"];?></a>
+                        if(isset( $_SESSION["uname"])){?>
+                        <a href="#" class="btn btn-danger" ><?php echo $_SESSION["uname"];?></a>
 
                            
                          <?php }
@@ -94,6 +94,18 @@ session_start();
 
                        
                         <form class="form-inline">
+                        <a href="" class="btn  my-2 my-sm-0 nav_search-btn">
+                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill btn btn-danger">
+                           <?php
+                           if(isset($_SESSION["mycart"])){
+                              echo count($_SESSION["mycart"]);
+                           }
+
+                           ?>
+                        </span>
+                           </a>
+
                            <a href="../UserRegistration/index.php" class="btn  my-2 my-sm-0 nav_search-btn">
                            <i class="fa fa-user" aria-hidden="true"></i>
                            </a>

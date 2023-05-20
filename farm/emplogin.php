@@ -135,7 +135,8 @@ if(isset($_POST["btn"])){
         $emparr = mysqli_fetch_array($run_emp);
         $_SESSION["ename"] = $emparr[1];
         $_SESSION["eemail"] = $emparr[2];
-        header("location:employee/pages/dashboard.php");
+        $_SESSION["empid"] = $emparr[0];
+          header("location:employee/pages/dashboard.php");
         
     }
     

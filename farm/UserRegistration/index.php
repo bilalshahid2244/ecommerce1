@@ -120,7 +120,7 @@ session_start();
         $rpass = $_POST["re_pass"];
 
         if($pass == $rpass){
-            $insert_query = "INSERT INTO `tbl_reg`(`name`, `email`, `phnum`, `addresss`, `pass`) 
+            $insert_query = "INSERT INTO `tbl_users`(`name`, `email`, `phnum`, `addresss`, `pass`) 
             VALUES (' $name','$email','$phnum',' $add',' $pass')";
             $run_reg = mysqli_query($conn,$insert_query);
     
@@ -156,7 +156,7 @@ session_start();
       $log_email=$_POST["your_email"];
       $log_pass = $_POST["your_pass"];
 
-      $select_reg = "SELECT * FROM `tbl_reg` WHERE `email` = '$log_email' AND `pass` = '$log_pass'";
+      $select_reg = "SELECT * FROM `tbl_users` WHERE `email` = '$log_email' AND `pass` = '$log_pass'";
       $run_login = mysqli_query($conn,$select_reg);
       $check_login = mysqli_num_rows($run_login);
 
@@ -168,7 +168,7 @@ session_start();
         
       } else {
         $convert = mysqli_fetch_array($run_login);
-        $_SESSION["username"] = $convert[1];
+        $_SESSION["uname"] = $convert[1];
        echo "<script>
        window.location.href='../template/index.php'
        </script>";
